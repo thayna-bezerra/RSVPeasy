@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* No seu arquivo de estilos Tailwind CSS */
+.section-border {
+  border: 5px solid transparent; /* Defina a largura da borda conforme necessário */
+  background-clip: padding-box;
+  border-image: linear-gradient(to left, #00A0E8 30%, #FF66B2 100%);
+  border-image-slice: 1;
+  border-radius: 5px;
+}
+
+/* No seu arquivo de estilos Tailwind CSS */
+.section-before::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(120deg, #FF66B2 30%, #00A0E8 100%);
+  padding: 8px;
+  width: 110%;
+  height: 110%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  z-index: 0;
+}
+
+
+
