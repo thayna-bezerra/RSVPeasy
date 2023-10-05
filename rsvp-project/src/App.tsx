@@ -1,8 +1,13 @@
+import CountdownComponent from './CountdownComponent'
+
 export default function App() {
   return (
     <body className="flex w-full h-screen justify-center items-center font-Outfit text-white bg-gradient-to-r from-blue-400 to-pink-500">
-      <section className="flex flex-col justify-center rounded-lg bg-gray-100 shadow-xl p-16 relative section-border">
-        <div className="flex flex-col max-w-2xl">
+      <section className="flex flex-col justify-center rounded-lg bg-gray-100 shadow-xl p-9 relative section-border">
+        <h2 className="text-gray-800 text-lg font-medium text-center p-2">
+          Um toque pela vida
+        </h2>
+        <div className="flex flex-col max-w-2xl mb-6">
           <form>
             <div className="mb-4">
               <label className="text-gray-800 text-base font-medium mb-1">
@@ -63,6 +68,8 @@ export default function App() {
             </div>
           </form>
         </div>
+
+        <CountdownComponent />
       </section>
     </body>
   )
