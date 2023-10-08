@@ -2,10 +2,17 @@ import React from 'react'
 import Countdown from 'react-countdown'
 import moment from 'moment'
 
+interface CountdownProps {
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+}
+
 const targetDate = moment('2023-11-18 19:00:00')
 
 const CountdownComponent: React.FC = () => {
-  const renderer = ({ days, hours, minutes, seconds }: any) => (
+  const renderer = ({ days, hours, minutes, seconds }: CountdownProps) => (
     <div className="text-center text-gray-600">
       <h1 className="text-base font-bold mb-4">
         Fortaleza dos Nogueiras, MA - 18 de Novembro de 2023 às 19:00
