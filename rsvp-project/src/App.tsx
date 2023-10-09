@@ -6,7 +6,9 @@ export default function App() {
     <body className="flex w-full h-screen justify-center items-center font-Outfit text-white bg-gradient-to-r from-blue-400 to-pink-500">
       <section className="flex flex-col justify-center rounded-lg bg-gray-100 shadow-xl p-9 relative section-border">
         <div className="flex justify-center">
-          <img className="w-40" src={logo} alt="Um toque pela vida" />
+          <div className="w-40 absolute top-6 -mt-20">
+            <img className=" " src={logo} alt="Um toque pela vida" />
+          </div>
         </div>
         <div className="flex flex-col max-w-2xl mb-6">
           <form>
