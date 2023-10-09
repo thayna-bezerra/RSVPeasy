@@ -3,10 +3,13 @@ require("express-async-errors");
 const migrationsRun = require("./database/sqlite/migrations");
 const AppError = require("./utils/AppError");
 
+const cors = require("cors");
 const express = require("express");
 const app = express();
 
 migrationsRun();
+
+app.use(cors());
 
 const UsersController = require("./controllers/UsersController.js")
 const usersController = new UsersController;
