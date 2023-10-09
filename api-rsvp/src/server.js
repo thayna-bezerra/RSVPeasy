@@ -1,18 +1,17 @@
 require("express-async-errors");
 
-const database = require("./database/sqlite");
-
+const migrationsRun = require("./database/sqlite/migrations");
 const AppError = require("./utils/AppError");
 
 const express = require("express");
 const app = express();
 
+migrationsRun();
+
 const UsersController = require("./controllers/UsersController.js")
 const usersController = new UsersController;
 
 app.use(express.json());
-
-database();
 
 app.post("/", usersController.create);
 
