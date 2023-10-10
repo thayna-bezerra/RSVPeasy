@@ -2,21 +2,21 @@ import { useState } from 'react'
 import CountdownComponent from './CountdownComponent'
 import logo from './assets/logo.png'
 import { api } from './services/api.ts'
+import InputMask from 'react-input-mask'
 
 export default function App() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
-  // const [canSendNotification, setCanSendNotification] = useState('')
+  const [canSendNotification, setCanSendNotification] = useState(false)
 
   function handleSignUp() {
-    console.log(name, phone, email)
     if (!name || !phone || !email) {
       return alert('Preencha todos os campos!')
     }
 
     api
-      .post('/', { name, phone, email })
+      .post('/', { name, phone, email, canSendNotification })
       .then(() => {
         alert('Usuário cadastrado no evento com sucesso!')
       })
@@ -57,7 +57,8 @@ export default function App() {
               <label className="text-gray-800 text-base font-medium mb-1">
                 Número de Telefone
               </label>
-              <input
+              <InputMask
+                mask="(99) 99999-9999"
                 type="tel"
                 id="phone"
                 name="telefone"
@@ -87,7 +88,7 @@ export default function App() {
                   type="checkbox"
                   className="mr-2 form-checkbox text-blue-500"
                   name="lembrete"
-                  // onChange={(e) => setCanSendNotification(e.target.value)}
+                  onChange={(e) => setCanSendNotification(e.target.checked)}
                 />
                 Receber lembrete do evento
               </label>
