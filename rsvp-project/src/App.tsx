@@ -86,8 +86,11 @@ export default function App() {
               defaultChecked={true}
               className="w-full flex items-center justify-center py-2 px-4 rounded-md bg-gradient-to-r from-blue-400 to-pink-500  text-white text-base font-medium hover:opacity-80 focus:outline-none focus:ring focus:ring-blue-300"
               onClick={() => {
-                console.log('clicou aqui')
                 handleSignUp()
+                window.open(
+                  'https://chat.whatsapp.com/BdSaGlw7NTrJCCVeP9RI33',
+                  '_blank',
+                )
               }}
             >
               Confirmar Presença
