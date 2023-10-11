@@ -2,7 +2,7 @@ const baseURL = 'aws.connect.psdb.cloud'
 // const baseURL = 'http://127.0.0.1:3000/salveDataInServer'
 
 export const api = {
-  post: async (url: string, data: unknown) => {
+  post: async (data: unknown) => {
     try {
       const response = await fetch(baseURL, {
         method: 'POST',
