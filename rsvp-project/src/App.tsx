@@ -14,19 +14,7 @@ export default function App() {
     if (!name || !phone || !email) {
       return alert('Preencha todos os campos!')
     }
-
-    api
-      .post('/', { name, phone, email, canSendNotification })
-      .then(() => {
-        alert('Usuário cadastrado no evento com sucesso!')
-      })
-      .catch((error) => {
-        if (error.response) {
-          alert('Usuário já existe')
-        } else {
-          alert('Não foi possível cadastrar!')
-        }
-      })
+    api.post('/', { name, phone, email, canSendNotification })
   }
 
   return (
