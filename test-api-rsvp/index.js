@@ -5,6 +5,7 @@ const knex = require('knex');
 const knexConfig = require('./knexfile');
 const { checkData, sendWhatsAppMenssage } = require('./functions');
 
+require('dotenv').config();
 const cors = require('cors'); // Importe o módulo cors
 
 // Configuração do CORS para permitir o acesso de http://localhost:5173
@@ -21,10 +22,12 @@ const db = knex(knexConfig.development);
 app.use(bodyParser.json());
 
 
-
 // Rota POST para enviar mensagens no whatsapp
 app.post('/sendMsg', async (req, res) => {
     const { number, message } = req.body;
+    res.json({
+      host: process.env,
+    })
 
     if (number && message) {
         console.log(`O número é ${number} e a mensagem é ${message}`);

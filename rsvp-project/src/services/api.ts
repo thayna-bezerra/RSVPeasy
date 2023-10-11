@@ -1,4 +1,4 @@
-const baseURL = 'https://aws.connect.psdb.cloud/'
+const baseURL = 'https://aws.connect.psdb.cloud/salveDataInServer'
 // const baseURL = 'http://127.0.0.1:3000/salveDataInServer'
 
 export const api = {
