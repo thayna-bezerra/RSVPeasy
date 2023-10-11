@@ -28,18 +28,20 @@ function checkData(name, phone, email) {
     return { check: true, message: '' }
 }
 
-async function sendWhatsAppMenssage(number, menssage) {
+// functions.js
+require('dotenv').config();
 
-    const accountSid = 'ACb1aef0acee26d54ee38bc83232e1e350';
-    const authToken = '2c79a935fad89b21d2cbd0438045696d';
+async function sendWhatsAppMenssage(number, menssage) {
+    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+    const authToken = process.env.TWILIO_AUTH_TOKEN;
 
     const client = require('twilio')(accountSid, authToken);
 
     return await client.messages
         .create({
             body: 'Este foi um teste de SMS, se tiver dúvidas para rodar as migrations me fala.',
-            from: '+12314032536',
-            to: '+5599984816915'
+            from: process.env.TWILIO_PHONE_NUMBER,
+            to: process.env.TO_PHONE_NUMBER
         })
         .then((message) => {
             console.log('Mensagem enviada com sucesso!', message.sid);
@@ -48,8 +50,9 @@ async function sendWhatsAppMenssage(number, menssage) {
         .catch((error) => {
             console.error('Erro ao enviar mensagem: ', error);
             return false;
-        });;
+        });
 }
+
 
 module.exports = {
     checkData,

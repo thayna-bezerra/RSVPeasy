@@ -1,11 +1,14 @@
+// knexfile.js
+require('dotenv').config();
+
 module.exports = {
   development: {
-    client: 'mysql',
+    client: process.env.DB_CLIENT,
     connection: {
-      host: 'aws.connect.psdb.cloud',
-      user: 'aesgtti7ne857gmovyt3',
-      password: 'pscale_pw_DtAgFk6RPVCInXRBIbWBa1lwWrxAFMWDerSwUcIEnvc',
-      database: 'test-database',
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       ssl: { rejectUnauthorized: false }
     },
     migrations: {
