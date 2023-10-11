@@ -14,7 +14,7 @@ export default function App() {
     if (!name || !phone || !email) {
       return alert('Preencha todos os campos!')
     }
-    api.post('/', { name, phone, email, canSendNotification })
+    api.post({ name, phone, email, canSendNotification })
   }
 
   return (
