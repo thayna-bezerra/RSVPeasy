@@ -9,7 +9,7 @@ const cors = require('cors'); // Importe o módulo cors
 
 // Configuração do CORS para permitir o acesso de http://localhost:5173
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: '*',
 };
 
 app.use(cors(corsOptions))

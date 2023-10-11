@@ -1,4 +1,5 @@
-const baseURL = 'http://127.0.0.1:3000/salveDataInServer'
+const baseURL = 'aws.connect.psdb.cloud'
+// const baseURL = 'http://127.0.0.1:3000/salveDataInServer'
 
 export const api = {
   post: async (url: string, data: unknown) => {
