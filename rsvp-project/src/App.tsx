@@ -3,18 +3,30 @@ import CountdownComponent from './CountdownComponent'
 import logo from './assets/logo.png'
 import { api } from './services/api.ts'
 import InputMask from 'react-input-mask'
+import CustomModal from './CustomModal'
 
 export default function App() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [canSendNotification, setCanSendNotification] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const openModal = () => {
+    setModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+  }
 
   function handleSignUp() {
     if (!name || !phone || !email) {
       return alert('Preencha todos os campos!')
     }
     api.post({ name, phone, email, canSendNotification })
+    // chamar a função do modal aqui
+    // caso o cadastro dê certo, abrir o modal
   }
 
   return (
@@ -87,10 +99,10 @@ export default function App() {
               className="w-full flex items-center justify-center py-2 px-4 rounded-md bg-gradient-to-r from-blue-400 to-pink-500  text-white text-base font-medium hover:opacity-80 focus:outline-none focus:ring focus:ring-blue-300"
               onClick={() => {
                 handleSignUp()
-                window.open(
-                  'https://chat.whatsapp.com/BdSaGlw7NTrJCCVeP9RI33',
-                  '_blank',
-                )
+                // window.open(
+                //   'https://chat.whatsapp.com/BdSaGlw7NTrJCCVeP9RI33',
+                //   '_blank',
+                // )
               }}
             >
               Confirmar Presença
@@ -98,8 +110,18 @@ export default function App() {
           </div>
         </div>
 
+        <CustomModal isOpen={modalOpen} onClose={closeModal} />
         <CountdownComponent />
       </section>
+
+      <div>
+        <button
+          onClick={openModal}
+          className="bg-blue-500 text-white px-4 py-2"
+        >
+          Abrir Modal
+        </button>
+      </div>
     </div>
   )
 }
