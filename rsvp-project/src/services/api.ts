@@ -12,7 +12,7 @@ export const api = {
       })
 
       if (response.ok) {
-        alert('Usuário cadastrado no evento com sucesso!')
+        console.log('Usuário cadastrado no evento com sucesso!')
       } else {
         throw new Error('Erro na solicitação')
       }

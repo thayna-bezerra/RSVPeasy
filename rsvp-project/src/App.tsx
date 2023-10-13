@@ -24,9 +24,15 @@ export default function App() {
     if (!name || !phone || !email) {
       return alert('Preencha todos os campos!')
     }
-    api.post({ name, phone, email, canSendNotification })
-    // chamar a função do modal aqui
-    // caso o cadastro dê certo, abrir o modal
+    api
+      .post({ name, phone, email, canSendNotification })
+      .then(() => {
+        openModal()
+      })
+      .catch((error) => {
+        console.error('Erro no cadastro:', error)
+        alert('Erro no cadastro')
+      })
   }
 
   return (
@@ -99,10 +105,6 @@ export default function App() {
               className="w-full flex items-center justify-center py-2 px-4 rounded-md bg-gradient-to-r from-blue-400 to-pink-500  text-white text-base font-medium hover:opacity-80 focus:outline-none focus:ring focus:ring-blue-300"
               onClick={() => {
                 handleSignUp()
-                // window.open(
-                //   'https://chat.whatsapp.com/BdSaGlw7NTrJCCVeP9RI33',
-                //   '_blank',
-                // )
               }}
             >
               Confirmar Presença
@@ -113,15 +115,6 @@ export default function App() {
         <CustomModal isOpen={modalOpen} onClose={closeModal} />
         <CountdownComponent />
       </section>
-
-      <div>
-        <button
-          onClick={openModal}
-          className="bg-blue-500 text-white px-4 py-2"
-        >
-          Abrir Modal
-        </button>
-      </div>
     </div>
   )
 }

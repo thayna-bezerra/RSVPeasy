@@ -20,9 +20,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
         <span
           className="hidden sm:inline-block sm:align-middle sm:h-screen"
           aria-hidden="true"
-        >
-          &#8203
-        </span>
+        ></span>
 
         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-top sm:max-w-lg sm:w-full">
           <div className="bg-pink-500">
