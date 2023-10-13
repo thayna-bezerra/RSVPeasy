@@ -37,7 +37,7 @@ export default function App() {
 
   return (
     <div className="flex w-full h-screen justify-center items-center font-Outfit text-white bg-gradient-to-r from-blue-400 to-pink-500">
-      <section className="flex flex-col justify-center rounded-lg bg-gray-100 shadow-xl p-9 relative section-border">
+      <section className="flex flex-col w-[600px] justify-center rounded-lg bg-gray-100 shadow-xl p-9 relative section-border">
         <div className="flex justify-center">
           <div className="w-40 absolute top-6 -mt-20">
             <img className=" " src={logo} alt="Um toque pela vida" />

@@ -1,4 +1,5 @@
 import React from 'react'
+import confirmed from './assets/confirmed.png'
 
 interface CustomModalProps {
   isOpen: boolean
@@ -25,21 +26,28 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-top sm:max-w-lg sm:w-full">
           <div className="bg-pink-500">
             <div className="px-4 py-4 sm:px-6">
-              <h3 className="text-lg leading-6 font-medium text-white">
+              <h3 className="text-lg leading-6 text-center font-bold text-white">
                 Sua presença foi confirmada com sucesso!
               </h3>
             </div>
           </div>
 
           <div className="bg-white px-4 py-5 sm:p-6">
-            <p className="text-gray-700">
-              Deseja entrar no grupo do WhatsApp para receber novidades sobre o
-              evento?
+            <div className="flex items-center justify-center pb-3">
+              <img
+                className="w-60 "
+                src={confirmed}
+                alt="Imagem de confirmação"
+              />
+            </div>
+            <p className="text-gray-700 text-center">
+              Deseja entrar no grupo do WhatsApp para receber <br /> novidades
+              sobre o evento?
             </p>
             <div className="mt-4 text-center">
               <button
                 onClick={onClose}
-                className="mr-3 px-4 py-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
+                className="mr-3 px-4 py-2 font-semibold text-white bg-blue-500 opacity-70 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
               >
                 Fechar
               </button>
